@@ -1,0 +1,5 @@
+name: blockader
+version: '0.1-SNAPSHOT'
+main: dev.akarah.blockader.Main
+api-version: '1.21'
+load: STARTUP
