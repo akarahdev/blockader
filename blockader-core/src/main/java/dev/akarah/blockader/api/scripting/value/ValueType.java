@@ -1,4 +1,4 @@
-package dev.akarah.blockader.api.scripting;
+package dev.akarah.blockader.api.scripting.value;
 
 import dev.akarah.blockader.api.registry.DataRegistries;
 import net.kyori.adventure.key.Key;
@@ -18,26 +18,6 @@ public interface ValueType<P, C> extends Keyed {
     C defaultValue();
 
     Optional<ItemConfig<C>> item();
-
-    interface ItemConfig<C> {
-        default ItemType itemType(C value) {
-            return ItemType.SHULKER_SHELL;
-        }
-
-        Component itemName(C value);
-
-        default List<Component> itemLoreFromValue(C value) {
-            return List.of();
-        }
-
-        default C editRightClick(Player player, C value) {
-            throw new UnsupportedOperationException();
-        }
-
-        default C editChat(Player player, C value, String message) {
-            throw new UnsupportedOperationException();
-        }
-    }
 
     default ItemStack defaultItem() {
         return createItemFromValue(defaultValue());

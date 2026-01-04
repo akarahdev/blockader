@@ -1,6 +1,7 @@
 package dev.akarah.blockader.core.game;
 
 import com.google.common.collect.Maps;
+import dev.akarah.blockader.Blockader;
 import org.bukkit.*;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -77,6 +78,18 @@ public class GameManager {
             player.teleportAsync(
                     loadedGame.gameWorld().getSpawnLocation()
             );
+            player.setGameMode(GameMode.SURVIVAL);
+            Blockader.getInstance().playerManager().setMode(player, PlayerManager.Mode.PLAY);
+        });
+    }
+
+    public void sendPlayerToBuildArea(Player player) {
+        gameByEntity(player).ifPresent(loadedGame -> {
+            player.teleportAsync(
+                    loadedGame.gameWorld().getSpawnLocation()
+            );
+            player.setGameMode(GameMode.CREATIVE);
+            Blockader.getInstance().playerManager().setMode(player, PlayerManager.Mode.EDIT);
         });
     }
 
@@ -85,6 +98,8 @@ public class GameManager {
             player.teleportAsync(
                     loadedGame.codeWorld().getSpawnLocation()
             );
+            player.setGameMode(GameMode.CREATIVE);
+            Blockader.getInstance().playerManager().setMode(player, PlayerManager.Mode.EDIT);
         });
     }
 }

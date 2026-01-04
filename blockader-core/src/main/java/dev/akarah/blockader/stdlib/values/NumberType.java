@@ -1,6 +1,7 @@
 package dev.akarah.blockader.stdlib.values;
 
-import dev.akarah.blockader.api.scripting.ValueType;
+import dev.akarah.blockader.api.scripting.value.ItemConfig;
+import dev.akarah.blockader.api.scripting.value.ValueType;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.NamespacedKey;
@@ -20,7 +21,7 @@ public class NumberType implements ValueType<Double, Double> {
 
     @Override
     public Optional<ItemConfig<Double>> item() {
-        return Optional.of(new ValueType.ItemConfig<>() {
+        return Optional.of(new ItemConfig<>() {
             @Override
             public ItemType itemType(Double value) {
                 return ItemType.SLIME_BALL;

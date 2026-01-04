@@ -1,8 +1,8 @@
 package dev.akarah.blockader.stdlib.values;
 
-import dev.akarah.blockader.api.scripting.ValueType;
+import dev.akarah.blockader.api.scripting.value.ItemConfig;
+import dev.akarah.blockader.api.scripting.value.ValueType;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemType;
