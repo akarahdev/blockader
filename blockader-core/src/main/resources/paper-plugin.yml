@@ -1,5 +1,6 @@
 name: blockader
 version: '0.1-SNAPSHOT'
-main: dev.akarah.blockader.Main
+main: dev.akarah.blockader.Blockader
+bootstrapper: dev.akarah.blockader.Bootstrap
 api-version: '1.21'
 load: STARTUP
