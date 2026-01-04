@@ -1,4 +1,4 @@
-package dev.akarah.blockader.game;
+package dev.akarah.blockader.core.game;
 
 import com.google.common.collect.Maps;
 import org.bukkit.*;
@@ -36,26 +36,33 @@ public class GameManager {
                         .type(WorldType.FLAT)
         );
         assert gameWorld != null;
-        gameWorld.setGameRule(GameRules.RANDOM_TICK_SPEED, 0);
-        gameWorld.setGameRule(GameRules.ADVANCE_TIME, false);
-        gameWorld.setGameRule(GameRules.SPAWN_MOBS, false);
+        applyDefaultGameRules(gameWorld);
+
         var codeWorld = Bukkit.createWorld(
                 WorldCreator.name("worlds/codearea/" + uuid)
                         .generator(GameChunkGenerator.ofSized(2, 5, GameChunkGenerator.GeneratorMode.CODE))
                         .type(WorldType.FLAT)
         );
         assert codeWorld != null;
-        codeWorld.setGameRule(GameRules.RANDOM_TICK_SPEED, 0);
-        codeWorld.setGameRule(GameRules.ADVANCE_TIME, false);
-        codeWorld.setGameRule(GameRules.SPAWN_MOBS, false);
+        applyDefaultGameRules(codeWorld);
         codeWorld.setAutoSave(false);
+
         var game = new LoadedGame(
                 uuid,
                 gameWorld,
                 codeWorld
         );
         loadedGames.put(uuid, game);
+
         return game;
+    }
+
+    private void applyDefaultGameRules(World world) {
+        world.setGameRule(GameRules.RANDOM_TICK_SPEED, 0);
+        world.setGameRule(GameRules.ADVANCE_TIME, false);
+        world.setGameRule(GameRules.SPAWN_MOBS, false);
+        world.setTime(6000);
+        world.setClearWeatherDuration(Integer.MAX_VALUE);
     }
 
     public void sendPlayerToGame(Player player, UUID uuid) {

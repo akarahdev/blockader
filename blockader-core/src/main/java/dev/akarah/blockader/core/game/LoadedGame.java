@@ -1,4 +1,4 @@
-package dev.akarah.blockader.game;
+package dev.akarah.blockader.core.game;
 
 import org.bukkit.World;
 import org.bukkit.persistence.PersistentDataContainer;

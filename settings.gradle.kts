@@ -1,1 +1,1 @@
-include("blockader-core", "blockader-stdlib")
+include("blockader-core")

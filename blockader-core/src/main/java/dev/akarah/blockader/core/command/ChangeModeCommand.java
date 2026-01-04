@@ -1,4 +1,4 @@
-package dev.akarah.blockader.command;
+package dev.akarah.blockader.core.command;
 
 import com.mojang.brigadier.context.CommandContext;
 import dev.akarah.blockader.Blockader;

@@ -1,5 +1,0 @@
-name: blockader-stdlib
-version: '0.1-SNAPSHOT'
-main: dev.akarah.stdlib.Main
-api-version: '1.21'
-load: STARTUP

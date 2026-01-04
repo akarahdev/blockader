@@ -1,4 +1,4 @@
-package dev.akarah.blockader.game;
+package dev.akarah.blockader.core.game;
 
 import org.bukkit.Material;
 import org.bukkit.generator.ChunkGenerator;

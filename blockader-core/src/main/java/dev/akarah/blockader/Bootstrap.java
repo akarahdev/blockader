@@ -1,6 +1,6 @@
 package dev.akarah.blockader;
 
-import dev.akarah.blockader.command.CommandRegistration;
+import dev.akarah.blockader.core.command.CommandRegistration;
 import io.papermc.paper.plugin.bootstrap.BootstrapContext;
 import io.papermc.paper.plugin.bootstrap.PluginBootstrap;
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
@@ -9,6 +9,8 @@ import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
 public class Bootstrap implements PluginBootstrap {
     @Override
     public void bootstrap(BootstrapContext bootstrapContext) {
+        dev.akarah.blockader.stdlib.Bootstrap.bootstrap(bootstrapContext);
+
         bootstrapContext.getLifecycleManager().registerEventHandler(
                 LifecycleEvents.COMMANDS,
                 event -> {
